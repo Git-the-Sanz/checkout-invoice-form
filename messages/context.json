@@ -1,0 +1,21 @@
+{
+  "invoice-data-settings.navigation.label": "Checkout Invoice Data App",
+  "invoice-data-settings.navigation.search.kws": "invoice, app, vtex",
+  "invoice-data-settings.title": "",
+  "invoice-data-settings.locale": "",
+  "invoice-data-settings.locale.it": "",
+  "invoice-data-settings.locale.fr": "",
+  "invoice-data-settings.invoice-form": "",
+  "invoice-data-settings.invoice-mandatory": "",
+  "invoice-data-settings.sdi-pec": "",
+  "invoice-data-settings.sdi-pec.sdi": "",
+  "invoice-data-settings.sdi-pec.pec": "",
+  "invoice-data-settings.person-type": "",
+  "invoice-data-settings.person-type.private": "",
+  "invoice-data-settings.person-type.company": "",
+  "invoice-data-settings.terms-conditions": "",
+  "invoice-data-settings.auto-name-surname": "",
+  "invoice-data-settings.none": "",
+  "invoice-data-settings.default": "",
+  "invoice-data-settings.btn-save": ""
+}

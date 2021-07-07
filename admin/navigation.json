@@ -1,0 +1,6 @@
+{
+  "section": "storeSetup",
+  "titleId": "invoice-data-settings.navigation.label",
+  "searchKeyWordsHelpers": "invoice-data-settings.navigation.search.kws",
+  "path": "/admin/invoice-data-settings"
+}

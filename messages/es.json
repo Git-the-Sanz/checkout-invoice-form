@@ -1,0 +1,21 @@
+{
+  "invoice-data-settings.navigation.label": "Checkout App Invoice Data",
+  "invoice-data-settings.navigation.search.kws": "invoice, app, vtex",
+  "invoice-data-settings.title": "Checkout App Invoice Data - Configuración",
+  "invoice-data-settings.locale": "Idioma",
+  "invoice-data-settings.locale.it": "Italiano",
+  "invoice-data-settings.locale.fr": "Francés",
+  "invoice-data-settings.invoice-form": "Mostrar formulario de facturación",
+  "invoice-data-settings.invoice-mandatory": "Completar de forma obligatoria los datos de facturación",
+  "invoice-data-settings.sdi-pec": "Mostrar selector \"SDI/PEC\"",
+  "invoice-data-settings.sdi-pec.sdi": "SDI",
+  "invoice-data-settings.sdi-pec.pec": "PEC",
+  "invoice-data-settings.person-type": "Mostrar selector \"Person type\"",
+  "invoice-data-settings.person-type.private": "Particular",
+  "invoice-data-settings.person-type.company": "Empresa",
+  "invoice-data-settings.terms-conditions": "Mostrar checkbox \"términos y condiciones\"",
+  "invoice-data-settings.auto-name-surname": "Autocompletar nombre y apellidos",
+  "invoice-data-settings.none": "Ninguno",
+  "invoice-data-settings.default": "Valor por defecto",
+  "invoice-data-settings.btn-save": "Guardar"
+}

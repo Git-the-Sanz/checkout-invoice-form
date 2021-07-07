@@ -1,0 +1,6 @@
+{
+  "admin.app.invoice-data-settings": {
+    "component": "InvoiceDataSettings",
+    "path": "/admin/app/invoice-data-settings"
+  }
+}
