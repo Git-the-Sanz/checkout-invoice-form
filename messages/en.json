@@ -2,7 +2,7 @@
   "invoice-data-settings.navigation.label": "Checkout Invoice Data App",
   "invoice-data-settings.navigation.search.kws": "invoice, app, vtex",
   "invoice-data-settings.title": "Checkout Invoice Data App - Settings",
-  "invoice-data-settings.locale": "Language",
+  "invoice-data-settings.locale": "Language/s",
   "invoice-data-settings.locale.it": "Italian",
   "invoice-data-settings.locale.fr": "French",
   "invoice-data-settings.invoice-form": "Show invoice form",
