@@ -2,8 +2,8 @@
   "name": "invoice-data-settings-poc",
   "vendor": "itwhirlpoolqa",
   "version": "0.0.3",
-  "title": "CHECKOUT-V6-INVOICE-DATA - Settings page",
-  "description": "",
+  "title": "Checkout invoice data settings",
+  "description": "Admin app to generate settings for the checkout invoice data app",
   "mustUpdateAt": "2022-08-28",
   "scripts": {
     "postreleasy": "vtex publish"
@@ -15,7 +15,28 @@
     "react": "3.x",
     "admin": "0.x",
     "messages": "1.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "node": "6.x"
   },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/*"
+      }
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.vtex.com",
+        "path": "/dataentities/*"
+      }
+    }
+  ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

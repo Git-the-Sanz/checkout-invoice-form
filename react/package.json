@@ -4,20 +4,38 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "@types/node": "^11.12.1",
-    "@types/react": "^16.8.10",
-    "@types/react-intl": "^2.3.17",
-    "apollo-client": "^2.4.7",
-    "graphql": "^14.0.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-intl": "^2.7.2",
-    "typescript": "3.9.7"
-  },
   "dependencies": {
     "@types/faker": "^4.1.5",
-    "faker": "^4.1.0"
+    "apollo-client": "^2.6.10",
+    "classnames": "^2.2.6",
+    "debounce": "^1.2.0",
+    "faker": "^4.1.0",
+    "graphql": "^14.6.0",
+    "graphql-tag": "^2.10.1",
+    "ramda": "^0.24.1",
+    "react": "^16.12.0",
+    "react-apollo": "^3.1.5",
+    "react-dom": "^16.12.0",
+    "react-html-parser": "^2.0.2",
+    "react-intl": "^3.12.0",
+    "react-router-dom": "^4.3.1",
+    "axios": "^0.20.0",
+    "json-schema-compare": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/graphql": "14.2.2",
+    "@types/node": "^11.12.1",
+    "@types/react": "^16.8.22",
+    "@types/react-intl": "^2.3.18",
+    "@vtex/test-tools": "^0.3.2",
+    "@vtex/tsconfig": "^0.2.0",
+    "eslint": "5.x",
+    "eslint-config-vtex-react": "^5.0.1",
+    "graphql": "^14.0.2",
+    "prettier": "^1.18.2",
+    "prop-types": "^15.7.2",
+    "typescript": "3.9.7",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.130.0/public/@types/vtex.render-runtime",
+    "vtex.styleguide": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.styleguide@9.144.0/public/@types/vtex.styleguide"
   }
 }
