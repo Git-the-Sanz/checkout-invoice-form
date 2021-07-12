@@ -1,77 +1,76 @@
-import { ExternalClient, InstanceOptions, IOContext } from "@vtex/api";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ExternalClient, InstanceOptions, IOContext } from '@vtex/api'
 
-import {
-  SETTINGS_SCHEMA
-} from "../common/schema";
+import { SETTINGS_SCHEMA } from '../../common/schema'
 
 export default class Masterdata extends ExternalClient {
   public schemas = {
-    schemaEntity: "InvoiceDataSettings",
+    schemaEntity: 'InvoiceDataSettings',
     settingsSchema: {
-      name: "invoiceSettings",
-      schema: SETTINGS_SCHEMA
-    }
-  };
+      name: 'invoiceSettings',
+      schema: SETTINGS_SCHEMA,
+    },
+  }
 
   constructor(context: IOContext, options?: InstanceOptions) {
-    super("", context, {
+    super('', context, {
       ...options,
       headers: {
         ...(options?.headers ?? {}),
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "X-Vtex-Use-Https": "true"
-      }
-    });
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'X-Vtex-Use-Https': 'true',
+      },
+    })
   }
 
   public async getSchema(ctx: any, schema: string): Promise<any> {
     return ctx.clients.masterdata.getSchema({
       dataEntity: this.schemas.schemaEntity,
-      schema: schema
-    });
+      schema: schema,
+    })
   }
 
   public async generateSchema(ctx: any): Promise<any> {
-
     try {
       await ctx.clients.masterdata.createOrUpdateSchema({
         dataEntity: this.schemas.schemaEntity,
         schemaName: this.schemas.settingsSchema.name,
-        schemaBody: this.schemas.settingsSchema.schema
-      });
+        schemaBody: this.schemas.settingsSchema.schema,
+      })
     } catch (error) {
-      console.error(error);
+      console.error(error)
+    } finally {
+      // eslint-disable-next-line no-unsafe-finally
+      return true
     }
-
-    return true;
   }
 
   public async getDocuments(
     ctx: any,
     schemaName: any,
     type: any,
-    whereClause: any = ""
+    whereClause: any = ''
   ): Promise<any> {
-    let whereCls = '(type="' + type + '"';
-    if (whereClause !== "1") {
-      whereClause.split("__").forEach((clause: any) => {
-        whereCls += " AND " + clause;
-      });
+    let whereCls = '(type="' + type + '"'
+    if (whereClause !== '1') {
+      whereClause.split('__').forEach((clause: any) => {
+        whereCls += ' AND ' + clause
+      })
     }
-    whereCls += ")";
+    whereCls += ')'
 
     return await ctx.clients.masterdata.searchDocuments({
       dataEntity: this.schemas.schemaEntity,
       fields: [],
       pagination: {
         page: 1,
-        pageSize: 5000
+        pageSize: 5000,
       },
       schema: schemaName,
       where: decodeURI(whereCls),
-      sort: ""
-    });
+      sort: '',
+    })
   }
 
   public async saveDocuments(
@@ -83,8 +82,7 @@ export default class Masterdata extends ExternalClient {
       dataEntity: this.schemas.schemaEntity,
       fields: body,
       schema: schemaName,
-      id: body.id ?? ""
-    });
+      id: body.id ?? '',
+    })
   }
-
 }

@@ -21,5 +21,6 @@
   "invoice-data-settings.auto-name-surname.info": "Nome completo e sobrenome do formulário de cobrança com os dados inseridos na seção \"dados pessoais\".",
   "invoice-data-settings.none": "Nenhum",
   "invoice-data-settings.default": "Valor padrão",
-  "invoice-data-settings.btn-save": "Salve"
+  "invoice-data-settings.btn-save": "Salve",
+  "admin/invoice-data-settings.saved": "Settings saved message"
 }

@@ -5,7 +5,7 @@
   "minReplicas": 2,
   "maxReplicas": 4,
   "routes": {
-    "getSchemas": {
+    "getSchema": {
       "path": "/invoice/getSchema/:schema",
       "public": true,
       "settingsType": "workspace"

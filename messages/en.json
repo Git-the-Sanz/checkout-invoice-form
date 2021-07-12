@@ -21,5 +21,6 @@
   "invoice-data-settings.auto-name-surname.info": "Complete name and surname of the billing form with the data entered in the \"personal data\" section.",
   "invoice-data-settings.none": "None",
   "invoice-data-settings.default": "Default value",
-  "invoice-data-settings.btn-save": "Save"
+  "invoice-data-settings.btn-save": "Save",
+  "admin/invoice-data-settings.saved": "Settings saved message"
 }

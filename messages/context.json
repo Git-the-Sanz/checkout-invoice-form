@@ -21,5 +21,6 @@
   "invoice-data-settings.auto-name-surname.info": "",
   "invoice-data-settings.none": "",
   "invoice-data-settings.default": "",
-  "invoice-data-settings.btn-save": ""
+  "invoice-data-settings.btn-save": "",
+  "admin/invoice-data-settings.saved": "Settings saved message"
 }

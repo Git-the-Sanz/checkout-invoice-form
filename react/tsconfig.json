@@ -1,24 +1,21 @@
 {
+  "extends": "@vtex/tsconfig",
   "compilerOptions": {
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react",
+    "noEmitOnError": false,
     "lib": [
-      "es2017",
       "dom"
     ],
     "module": "esnext",
     "moduleResolution": "node",
-    "sourceMap": true,
     "target": "es2017",
-    "skipLibCheck": true,
-    "strict": true
-  },
-  "typeAcquisition": {
-    "enable": false
+    "skipLibCheck": true
   },
   "include": [
-    "./**/*"
+    "./typings/*.d.ts",
+    "./**/*.tsx",
+    "./**/*.ts",
+    "./**/*.d.ts",
+    "./**/*.js"
   ],
   "exclude": [
     "node_modules"

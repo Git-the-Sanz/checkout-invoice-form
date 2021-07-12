@@ -1,12 +1,13 @@
+/* eslint-disable prettier/prettier */
 export const SETTINGS_SCHEMA = {
   'properties': {
     'showInvoiceForm': { 'type': 'boolean' },
     'invoiceDataMandatory': { 'type': 'boolean' },
     'locale': {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      'type': 'array',
+      'items': {
+        'type': 'string',
+      },
     },
     'showSDIPECSelector': { 'type': 'boolean' },
     'defaultSDIPEC': { 'type': 'string' },

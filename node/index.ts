@@ -4,51 +4,52 @@ import {
   ServiceContext,
   method,
   LRUCache,
-  RecorderState
-} from "@vtex/api";
+  RecorderState,
+} from '@vtex/api'
 
-import { Clients } from "./clients";
-import { invoiceAppGetSchema } from "./middlewares/invoiceAppGetSchema";
-import { generateInvoiceSchema } from "./middlewares/generateInvoiceSchema";
-import { receiveDocuments } from "./middlewares/receiveDocuments";
-import { saveMasterdataDocuments } from "./middlewares/saveMasterdataDocuments";
+import { Clients } from './clients'
+import { invoiceAppGetSchema } from './middlewares/invoiceAppGetSchema'
+import { generateInvoiceSchema } from './middlewares/generateInvoiceSchema'
+import { receiveDocuments } from './middlewares/receiveDocuments'
+import { saveMasterdataDocuments } from './middlewares/saveMasterdataDocuments'
 
-const TIMEOUT_MS = 5000;
-const memoryCache = new LRUCache<string, any>({ max: 5000 });
+const TIMEOUT_MS = 5000
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const memoryCache = new LRUCache<string, any>({ max: 5000 })
 
 const clients: ClientsConfig<Clients> = {
   implementation: Clients,
   options: {
     default: {
       retries: 2,
-      timeout: TIMEOUT_MS
+      timeout: TIMEOUT_MS,
     },
     status: {
-      memoryCache
-    }
-  }
-};
+      memoryCache,
+    },
+  },
+}
 
 declare global {
-  type Context = ServiceContext<Clients, State>;
+  type Context = ServiceContext<Clients, State>
 
-  type State = RecorderState;
+  type State = RecorderState
 }
 
 export default new Service({
   clients,
   routes: {
     getSchema: method({
-      GET: invoiceAppGetSchema
+      GET: invoiceAppGetSchema,
     }),
     generateSchema: method({
-      PUT: generateInvoiceSchema
+      PUT: generateInvoiceSchema,
     }),
     getDocuments: method({
-      GET: receiveDocuments
+      GET: receiveDocuments,
     }),
     saveDocuments: method({
-      POST: saveMasterdataDocuments
-    })
-  }
-});
+      POST: saveMasterdataDocuments,
+    }),
+  },
+})

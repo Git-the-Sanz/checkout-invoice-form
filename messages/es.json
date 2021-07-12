@@ -21,5 +21,6 @@
   "invoice-data-settings.auto-name-surname.info": "Completar nombre y apellidos del formulario de facturación con los datos introducidos en la sección \"datos personales\".",
   "invoice-data-settings.none": "Ninguno",
   "invoice-data-settings.default": "Valor por defecto",
-  "invoice-data-settings.btn-save": "Guardar"
+  "invoice-data-settings.btn-save": "Guardar",
+  "admin/invoice-data-settings.saved": "Settings saved message"
 }

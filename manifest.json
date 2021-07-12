@@ -1,6 +1,6 @@
 {
-  "name": "invoice-data-settings-poc",
-  "vendor": "itwhirlpoolqa",
+  "name": "invoice-data-settings",
+  "vendor": "vtex",
   "version": "0.0.3",
   "title": "Checkout invoice data settings",
   "description": "Admin app to generate settings for the checkout invoice data app",
@@ -26,6 +26,9 @@
         "host": "{{account}}.vtexcommercestable.com.br",
         "path": "/api/*"
       }
+    },
+    {
+      "name": "vbase-read-write"
     },
     {
       "name": "ADMIN_DS"
