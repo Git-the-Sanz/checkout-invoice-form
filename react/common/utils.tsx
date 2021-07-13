@@ -37,7 +37,11 @@ export async function verifySchemas() {
       if ('error' in parsedSettings) {
         throw new Error('failed to json parse settings')
       } else {
-        returnState = compare(settings, SETTINGS_SCHEMA)
+        console.log('ELSE')
+        console.log('parsedSettings', parsedSettings)
+        console.log('SETTINGS_SCHEMA', SETTINGS_SCHEMA)
+
+        returnState = !compare(parsedSettings, SETTINGS_SCHEMA)
       }
     }
   } catch (ex) {

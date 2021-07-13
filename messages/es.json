@@ -1,7 +1,8 @@
 {
   "invoice-data-settings.navigation.label": "Checkout App Invoice Data",
   "invoice-data-settings.navigation.search.kws": "invoice, app, vtex",
-  "invoice-data-settings.title": "Checkout App Invoice Data - Configuración",
+  "invoice-data-settings.title": "Configuración formulario de facturación",
+  "invoice-data-settings.subtitle": "Aquí puedes configurar como el formulario de facturación del checkout funciona",
   "invoice-data-settings.locale": "Idioma/s",
   "invoice-data-settings.locale.it": "Italiano",
   "invoice-data-settings.locale.fr": "Francés",
@@ -22,5 +23,7 @@
   "invoice-data-settings.none": "Ninguno",
   "invoice-data-settings.default": "Valor por defecto",
   "invoice-data-settings.btn-save": "Guardar",
-  "admin/invoice-data-settings.saved": "Settings saved message"
+  "admin/invoice-data-settings.saved": "Ajustes guardados correctamente",
+  "admin/invoice-data-settings.updating-schema": "Un momento por favor mientras creamos la configuración para esta aplicación",
+  "admin/invoice-data-settings.loading-settings": "Un momento mientras recuperamos la configuración"
 }

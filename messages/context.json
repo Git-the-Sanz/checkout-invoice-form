@@ -1,7 +1,8 @@
 {
   "invoice-data-settings.navigation.label": "Checkout Invoice Data App",
   "invoice-data-settings.navigation.search.kws": "invoice, app, vtex",
-  "invoice-data-settings.title": "",
+  "invoice-data-settings.title": "Page header title",
+  "invoice-data-settings.subtitle": "Page header subtitle",
   "invoice-data-settings.locale": "",
   "invoice-data-settings.locale.it": "",
   "invoice-data-settings.locale.fr": "",
@@ -22,5 +23,7 @@
   "invoice-data-settings.none": "",
   "invoice-data-settings.default": "",
   "invoice-data-settings.btn-save": "",
-  "admin/invoice-data-settings.saved": "Settings saved message"
+  "admin/invoice-data-settings.saved": "Settings saved message",
+  "admin/invoice-data-settings.updating-schema": "Updating schema message",
+  "admin/invoice-data-settings.loading-settings": "Loading settings message"
 }

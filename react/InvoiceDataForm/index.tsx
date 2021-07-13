@@ -8,6 +8,7 @@ import {
   EXPERIMENTAL_Select,
   Toggle,
   Spinner,
+  Alert,
 } from 'vtex.styleguide'
 import { FormattedMessage, injectIntl } from 'react-intl'
 
@@ -18,13 +19,14 @@ import {
   sdiPecOptions,
   personTypeOptions,
 } from '../common/options'
-import styles from './styles.css'
 
 class InvoiceDataForm extends Component<any, any> {
   constructor(props: any) {
     super(props)
     this.state = {
+      id: '',
       loadingSettings: false,
+      savingSettings: false,
       locale: [],
       italySelected: false,
       showInvoiceForm: false,
@@ -34,7 +36,7 @@ class InvoiceDataForm extends Component<any, any> {
       showPersonTypeSelector: false,
       defaultPersonType: 'none',
       showTermsConditions: false,
-      autocompleteNameSurname: false,
+      autocompleteName: false,
       successMessage: '',
       errorMessage: '',
     }
@@ -62,21 +64,44 @@ class InvoiceDataForm extends Component<any, any> {
         console.log('%c SETTINGS ', 'background: yellow; color: black', json)
 
         if (json?.[0]) {
+          const {
+            id,
+            locale,
+            showInvoiceForm,
+            invoiceDataMandatory,
+            showSDIPECSelector,
+            defaultSDIPEC,
+            showPersonTypeSelector,
+            defaultPersonType,
+            showTermsConditions,
+            autocompleteName,
+          } = json[0]
+
+          const hasItaly = locale.some((el: any) => el === 'it')
+
           this.setState({
-            /* locale: json[0].locale,
-            showInvoiceForm: json[0].showInvoiceForm,
-            invoiceDataMandatory: json[0].invoiceDataMandatory,
-            showSDIPECSelector: json[0].showSDIPECSelector,
-            defaultSDIPEC: json[0].defaultSDIPEC,
-            showPersonTypeSelector: json[0].showPersonTypeSelector,
-            defaultPersonType: json[0].defaultPersonType,
-            showTermsConditions: json[0].showTermsConditions,
-            autocompleteNameSurname: json[0].autocompleteNameSurname, */
+            id,
+            locale: localeOptions.filter((item) =>
+              locale.includes(item.value.id)
+            ),
+            italySelected: hasItaly,
+            showInvoiceForm,
+            invoiceDataMandatory,
+            showSDIPECSelector: hasItaly && showSDIPECSelector,
+            defaultSDIPEC,
+            showPersonTypeSelector,
+            defaultPersonType,
+            showTermsConditions,
+            autocompleteName,
             loadingSettings: false,
           })
+        } else {
+          this.setState({ loadingSettings: false })
         }
       })
-      .catch((err) => this.setState({ errorMessage: err }))
+      .catch((err) => {
+        this.setState({ loadingSettings: false, errorMessage: err })
+      })
   }
 
   public saveSettings = () => {
@@ -86,6 +111,7 @@ class InvoiceDataForm extends Component<any, any> {
       savingSettings: true,
     })
     const {
+      id,
       locale,
       showInvoiceForm,
       invoiceDataMandatory,
@@ -94,7 +120,7 @@ class InvoiceDataForm extends Component<any, any> {
       showPersonTypeSelector,
       defaultPersonType,
       showTermsConditions,
-      autocompleteNameSurname,
+      autocompleteName,
     } = this.state
 
     // eslint-disable-next-line prefer-const
@@ -104,24 +130,36 @@ class InvoiceDataForm extends Component<any, any> {
       return
     }
 
+    const localeIds =
+      locale.length > 0 ? locale.map((locale: any) => locale.value.id) : false
+
+    const hasItaly = localeIds && localeIds.some((el: any) => el === 'it')
+
+    console.log('localeIds', localeIds)
+    console.log('SDIPEC', hasItaly && showSDIPECSelector)
+
     const postData = {
-      locale: locale,
-      showInvoiceForm: showInvoiceForm,
-      invoiceDataMandatory: invoiceDataMandatory,
-      showSDIPECSelector: showSDIPECSelector,
-      defaultSDIPEC: defaultSDIPEC,
-      showPersonTypeSelector: showPersonTypeSelector,
-      defaultPersonType: defaultPersonType,
-      showTermsConditions: showTermsConditions,
-      autocompleteNameSurname: autocompleteNameSurname,
+      id,
+      locale: localeIds || [],
+      showInvoiceForm,
+      invoiceDataMandatory,
+      showSDIPECSelector: hasItaly && showSDIPECSelector,
+      defaultSDIPEC,
+      showPersonTypeSelector,
+      defaultPersonType,
+      showTermsConditions,
+      autocompleteName,
       type: schemaTypes.settings,
     }
+
+    console.log('postData', postData)
 
     this.saveMasterData(postData)
   }
 
   public saveMasterData = (postData: any) => {
     const { formatMessage } = this.props.intl
+
     fetch(fetchPath.saveDocuments + schemaNames.settings + '/', {
       method: fetchMethod.post,
       body: JSON.stringify(postData),
@@ -135,19 +173,17 @@ class InvoiceDataForm extends Component<any, any> {
           }),
           savingSettings: false,
         })
-        setTimeout(() => {
-          // eslint-disable-next-line no-undef
-          window.location.reload()
-        }, 5000)
       })
       .catch((err) =>
         this.setState({ savingSettings: false, errorMessage: err })
       )
   }
 
-  public checkLanguageSelected = (options: []) => {
-    const optionIT = options.filter((option: any) => option.value.id === 'it')
-    this.setState({ italySelected: optionIT.length > 0 })
+  public handleItalySelected = (options: []) => {
+    const isItalySelected = options.filter(
+      (option: any) => option.value.id === 'it'
+    )
+    this.setState({ italySelected: isItalySelected.length > 0 })
   }
 
   public render() {
@@ -163,7 +199,7 @@ class InvoiceDataForm extends Component<any, any> {
       showPersonTypeSelector,
       defaultPersonType,
       showTermsConditions,
-      autocompleteNameSurname,
+      autocompleteName,
       successMessage,
       errorMessage,
     }: any = this.state
@@ -214,9 +250,9 @@ class InvoiceDataForm extends Component<any, any> {
                   multi
                   onChange={(option: any) => {
                     this.setState({ locale: option })
-                    this.checkLanguageSelected(option)
+                    this.handleItalySelected(option)
                   }}
-                  defaultValue={localeOptions.filter((e) => e.value === locale)}
+                  defaultValue={locale}
                 />
               </div>
               {italySelected ? (
@@ -325,10 +361,10 @@ class InvoiceDataForm extends Component<any, any> {
                   label={
                     <FormattedMessage id="invoice-data-settings.auto-name-surname" />
                   }
-                  checked={autocompleteNameSurname}
+                  checked={autocompleteName}
                   onChange={() => {
                     this.setState({
-                      autocompleteNameSurname: !autocompleteNameSurname,
+                      autocompleteName: !autocompleteName,
                     })
                   }}
                 />
@@ -347,7 +383,7 @@ class InvoiceDataForm extends Component<any, any> {
                 variation="primary"
                 isLoading={savingSettings}
                 onClick={() => {
-                  //this.saveSettings()
+                  this.saveSettings()
                 }}
               >
                 {<FormattedMessage id="invoice-data-settings.btn-save" />}
@@ -355,14 +391,30 @@ class InvoiceDataForm extends Component<any, any> {
             </div>
             {successMessage ? (
               <div className="flex flex-column mt6">
-                <p className={styles.successMessage}>{successMessage}</p>
+                <Alert
+                  type="success"
+                  onClose={() =>
+                    this.setState({
+                      successMessage: '',
+                    })
+                  }
+                >
+                  {successMessage}
+                </Alert>
               </div>
             ) : null}
             {errorMessage ? (
               <div className="flex flex-column mt6">
-                <p className={styles.errorMessage}>
+                <Alert
+                  type="error"
+                  onClose={() =>
+                    this.setState({
+                      errorMessage: '',
+                    })
+                  }
+                >
                   {JSON.stringify(errorMessage)}
-                </p>
+                </Alert>
               </div>
             ) : null}
           </div>

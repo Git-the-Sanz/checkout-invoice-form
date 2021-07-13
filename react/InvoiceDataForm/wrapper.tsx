@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import { Spinner } from 'vtex.styleguide'
-import { formatMessage } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 
 import { verifySchemas } from '../common/utils'
 import { fetchHeaders, fetchMethod, fetchPath } from '../common/fetch'
@@ -19,8 +19,10 @@ const SchemaVerifier: FC = ({ children }) => {
           method: fetchMethod.put,
           headers: fetchHeaders,
         }).finally(() => {
-          // eslint-disable-next-line no-undef
-          window.location.reload()
+          setTimeout(() => {
+            // eslint-disable-next-line no-undef
+            window.location.reload()
+          }, 5000)
         })
       } catch (error) {
         console.error(error)
@@ -39,9 +41,7 @@ const SchemaVerifier: FC = ({ children }) => {
     <>
       {updatingSchema ? (
         <div className="flex flex-column justify-center items-center">
-          {formatMessage({
-            id: 'admin/invoice-data-settings.updating-schema',
-          })}
+          <FormattedMessage id="admin/invoice-data-settings.updating-schema" />
           <div className="pt6 pb6">
             <Spinner />
           </div>

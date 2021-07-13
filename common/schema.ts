@@ -15,13 +15,14 @@ export const SETTINGS_SCHEMA = {
     'defaultPersonType': { 'type': 'string' },
     'showTermsConditions': { 'type': 'boolean' },
     'autocompleteName': { 'type': 'boolean' },
+    'type': { 'type': 'string' },
   },
   'v-security': {
     'allowGetAll': true,
-    'publicFilter': ['id', 'createdIn'],
+    'publicFilter': ['type'],
     'publicJsonSchema': false,
   },
   'v-cache': false,
-  'v-default-fields': ['id', 'createdIn'],
-  'v-indexed': ['id', 'createdIn'],
+  'v-default-fields': ['id', 'showInvoiceForm', 'invoiceDataMandatory', 'locale', 'showSDIPECSelector', 'defaultSDIPEC', 'showPersonTypeSelector', 'defaultPersonType', 'showTermsConditions', 'autocompleteName', 'type'],
+  'v-indexed': ['id', 'type'],
 }
