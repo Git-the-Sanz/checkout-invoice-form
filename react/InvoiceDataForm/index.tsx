@@ -123,12 +123,16 @@ class InvoiceDataForm extends Component<any, any> {
       autocompleteName,
     } = this.state
 
-    // eslint-disable-next-line prefer-const
-    let hasErrors = false
+    /**
+     * @description
+     * The following snippet may come in handy if we need to
+     * review settings before submitting them
+     */
+    /* let hasErrors = false
     if (hasErrors) {
       this.setState({ savingSettings: false })
       return
-    }
+    } */
 
     const localeIds =
       locale.length > 0 ? locale.map((locale: any) => locale.value.id) : false
@@ -216,7 +220,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="mb3">
                 <Toggle
                   label={
-                    <FormattedMessage id="invoice-data-settings.invoice-form" />
+                    <FormattedMessage id="admin/invoice-data-settings.invoice-form" />
                   }
                   checked={showInvoiceForm}
                   onChange={() => {
@@ -227,7 +231,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="mb5">
                 <Toggle
                   label={
-                    <FormattedMessage id="invoice-data-settings.invoice-mandatory" />
+                    <FormattedMessage id="admin/invoice-data-settings.invoice-mandatory" />
                   }
                   checked={invoiceDataMandatory}
                   onChange={() => {
@@ -239,7 +243,9 @@ class InvoiceDataForm extends Component<any, any> {
               </div>
               <div className="mb3">
                 <EXPERIMENTAL_Select
-                  label={<FormattedMessage id="invoice-data-settings.locale" />}
+                  label={
+                    <FormattedMessage id="admin/invoice-data-settings.locale" />
+                  }
                   options={localeOptions}
                   multi
                   onChange={(option: any) => {
@@ -257,14 +263,14 @@ class InvoiceDataForm extends Component<any, any> {
                   <div className="mb4">
                     <div className="t-small c-warning">
                       {
-                        <FormattedMessage id="invoice-data-settings.sdi-pec.info-it" />
+                        <FormattedMessage id="admin/invoice-data-settings.sdi-pec.info-it" />
                       }
                     </div>
                   </div>
                   <div className="mb5">
                     <Toggle
                       label={
-                        <FormattedMessage id="invoice-data-settings.sdi-pec" />
+                        <FormattedMessage id="admin/invoice-data-settings.sdi-pec" />
                       }
                       checked={showSDIPECSelector}
                       onChange={() => {
@@ -277,7 +283,7 @@ class InvoiceDataForm extends Component<any, any> {
                   <div className="mb3">
                     <EXPERIMENTAL_Select
                       label={
-                        <FormattedMessage id="invoice-data-settings.default" />
+                        <FormattedMessage id="admin/invoice-data-settings.default" />
                       }
                       options={sdiPecOptions}
                       multi={false}
@@ -292,7 +298,7 @@ class InvoiceDataForm extends Component<any, any> {
                   <div className="mv4">
                     <div className="t-small c-muted-2">
                       {
-                        <FormattedMessage id="invoice-data-settings.sdi-pec.info" />
+                        <FormattedMessage id="admin/invoice-data-settings.sdi-pec.info" />
                       }
                     </div>
                   </div>
@@ -304,7 +310,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="mb5">
                 <Toggle
                   label={
-                    <FormattedMessage id="invoice-data-settings.person-type" />
+                    <FormattedMessage id="admin/invoice-data-settings.person-type" />
                   }
                   checked={showPersonTypeSelector}
                   onChange={() => {
@@ -317,7 +323,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="mb3">
                 <EXPERIMENTAL_Select
                   label={
-                    <FormattedMessage id="invoice-data-settings.default" />
+                    <FormattedMessage id="admin/invoice-data-settings.default" />
                   }
                   options={personTypeOptions}
                   multi={false}
@@ -332,7 +338,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="flex mv4 items-center">
                 <div className="t-small c-muted-2">
                   {
-                    <FormattedMessage id="invoice-data-settings.person-type.info" />
+                    <FormattedMessage id="admin/invoice-data-settings.person-type.info" />
                   }
                 </div>
               </div>
@@ -342,7 +348,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="mb3">
                 <Toggle
                   label={
-                    <FormattedMessage id="invoice-data-settings.terms-conditions" />
+                    <FormattedMessage id="admin/invoice-data-settings.terms-conditions" />
                   }
                   checked={showTermsConditions}
                   onChange={() => {
@@ -353,7 +359,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="mb3">
                 <Toggle
                   label={
-                    <FormattedMessage id="invoice-data-settings.auto-name-surname" />
+                    <FormattedMessage id="admin/invoice-data-settings.auto-name-surname" />
                   }
                   checked={autocompleteName}
                   onChange={() => {
@@ -366,7 +372,7 @@ class InvoiceDataForm extends Component<any, any> {
               <div className="flex mt4 items-center">
                 <div className="t-small c-muted-2">
                   {
-                    <FormattedMessage id="invoice-data-settings.auto-name-surname.info" />
+                    <FormattedMessage id="admin/invoice-data-settings.auto-name-surname.info" />
                   }
                 </div>
               </div>
@@ -380,7 +386,7 @@ class InvoiceDataForm extends Component<any, any> {
                   this.saveSettings()
                 }}
               >
-                {<FormattedMessage id="invoice-data-settings.btn-save" />}
+                {<FormattedMessage id="admin/invoice-data-settings.btn-save" />}
               </Button>
             </div>
             {successMessage ? (

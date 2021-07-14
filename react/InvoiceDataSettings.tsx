@@ -11,8 +11,10 @@ const InvoiceDataSettings: FC = () => {
     <Layout
       pageHeader={
         <PageHeader
-          title={<FormattedMessage id="invoice-data-settings.title" />}
-          subtitle={<FormattedMessage id="invoice-data-settings.subtitle" />}
+          title={<FormattedMessage id="admin/invoice-data-settings.title" />}
+          subtitle={
+            <FormattedMessage id="admin/invoice-data-settings.subtitle" />
+          }
         />
       }
     >
