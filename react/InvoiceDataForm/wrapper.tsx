@@ -11,8 +11,8 @@ async function stall(stallTime = 3000) {
 
 /**
  * @description
- * This wrapper verifies if the masterdata schema on the account is
- * the same as this app uses. If not, it will attempt to update it.
+ * Verifies if the schema on the account is up to date with the
+ * on this application. If not, it will attempt to update it.
  */
 const SchemaVerifier: FC = ({ children }) => {
   const [updatingSchema, setUpdating] = useState(false)
@@ -30,7 +30,7 @@ const SchemaVerifier: FC = ({ children }) => {
         })
         /**
          * We implement a stalling strategy to give masterdata time
-         * to index the new schema and avoid false positives
+         * to index the new schema to avoid false positives
          */
         await stall(5000)
         setProgress(['completed', 'inProgress'])

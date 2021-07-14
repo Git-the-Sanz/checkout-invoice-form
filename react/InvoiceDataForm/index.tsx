@@ -25,8 +25,6 @@ class InvoiceDataForm extends Component<any, any> {
     super(props)
     this.state = {
       id: '',
-      loadingSettings: false,
-      savingSettings: false,
       locale: [],
       italySelected: false,
       showInvoiceForm: false,
@@ -37,6 +35,8 @@ class InvoiceDataForm extends Component<any, any> {
       defaultPersonType: 'none',
       showTermsConditions: false,
       autocompleteName: false,
+      loadingSettings: false,
+      savingSettings: false,
       successMessage: '',
       errorMessage: '',
     }
@@ -126,7 +126,7 @@ class InvoiceDataForm extends Component<any, any> {
     /**
      * @description
      * The following snippet may come in handy if we need to
-     * review settings before submitting them
+     * enforce settings before submitting them
      */
     /* let hasErrors = false
     if (hasErrors) {
