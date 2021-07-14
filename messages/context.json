@@ -25,5 +25,6 @@
   "invoice-data-settings.btn-save": "",
   "admin/invoice-data-settings.saved": "Settings saved message",
   "admin/invoice-data-settings.updating-schema": "Updating schema message",
-  "admin/invoice-data-settings.loading-settings": "Loading settings message"
+  "admin/invoice-data-settings.loading-settings": "Loading settings message",
+  "admin/invoice-data-settings.reload-button": "Reload button text"
 }

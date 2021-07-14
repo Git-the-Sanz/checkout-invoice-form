@@ -24,6 +24,7 @@
   "invoice-data-settings.default": "Default value",
   "invoice-data-settings.btn-save": "Save",
   "admin/invoice-data-settings.saved": "Settings saved successfully",
-  "admin/invoice-data-settings.updating-schema": "Please wait a moment while we create the configuration for this application",
-  "admin/invoice-data-settings.loading-settings": "Please wait a moment while we retrieve your settings"
+  "admin/invoice-data-settings.updating-schema": "Please wait a moment while we create the configuration for this application. Once finished, please reload this page.",
+  "admin/invoice-data-settings.loading-settings": "Please wait a moment while we retrieve your settings",
+  "admin/invoice-data-settings.reload-button": "RELOAD"
 }

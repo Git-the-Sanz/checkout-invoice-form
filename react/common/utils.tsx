@@ -11,10 +11,12 @@ export const schemaTypes = {
   settings: 'settings',
 }
 
+/**
+ * Compares the schema in masterdata vs the one in this application
+ * @returns boolean
+ */
 export async function verifySchemas() {
-  console.log('%c VERIFYING... ', 'background: #fff; color: #333')
   let returnState = false
-
   try {
     const settingsResponse = await fetch(
       `${fetchPath.getSchema}${schemaNames.settings}`
@@ -22,25 +24,13 @@ export async function verifySchemas() {
     const settings = await settingsResponse.text()
 
     if (settings === '') {
-      console.log(
-        '%c NO SETTINGS SCHEMA FOUND ',
-        'background: red; color: white'
-      )
       returnState = true
     } else {
       const parsedSettings = JSON.parse(settings)
-      console.log(
-        '%c SCHEMA: ',
-        'background: yellow; color: black',
-        parsedSettings
-      )
+
       if ('error' in parsedSettings) {
         throw new Error('failed to json parse settings')
       } else {
-        console.log('ELSE')
-        console.log('parsedSettings', parsedSettings)
-        console.log('SETTINGS_SCHEMA', SETTINGS_SCHEMA)
-
         returnState = !compare(parsedSettings, SETTINGS_SCHEMA)
       }
     }

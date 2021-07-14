@@ -24,6 +24,7 @@
   "invoice-data-settings.default": "Valor padrão",
   "invoice-data-settings.btn-save": "Salve",
   "admin/invoice-data-settings.saved": "Configurações salvas com sucesso",
-  "admin/invoice-data-settings.updating-schema": "Aguarde um momento enquanto criamos a configuração para este aplicativo",
-  "admin/invoice-data-settings.loading-settings": "Aguarde um momento enquanto recuperamos suas configurações"
+  "admin/invoice-data-settings.updating-schema": "Aguarde um momento enquanto criamos a configuração para este aplicativo. Quando terminar, recarregue esta página.",
+  "admin/invoice-data-settings.loading-settings": "Aguarde um momento enquanto recuperamos suas configurações",
+  "admin/invoice-data-settings.reload-button": "Recarregar"
 }

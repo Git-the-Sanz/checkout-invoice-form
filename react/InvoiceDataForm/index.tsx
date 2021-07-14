@@ -48,7 +48,6 @@ class InvoiceDataForm extends Component<any, any> {
 
   public getSettings = () => {
     this.setState({ loadingSettings: true })
-    console.log('%c GETTING SETTINGS... ', 'background: #fff; color: #333')
 
     fetch(
       `${fetchPath.getDocuments}${schemaNames.settings}/${schemaTypes.settings}/1`,
@@ -61,8 +60,6 @@ class InvoiceDataForm extends Component<any, any> {
         return response.json()
       })
       .then((json) => {
-        console.log('%c SETTINGS ', 'background: yellow; color: black', json)
-
         if (json?.[0]) {
           const {
             id,
@@ -100,7 +97,10 @@ class InvoiceDataForm extends Component<any, any> {
         }
       })
       .catch((err) => {
-        this.setState({ loadingSettings: false, errorMessage: err })
+        this.setState({
+          loadingSettings: false,
+          errorMessage: `There was a problem retrieving your settings: ${err}`,
+        })
       })
   }
 
@@ -135,9 +135,6 @@ class InvoiceDataForm extends Component<any, any> {
 
     const hasItaly = localeIds && localeIds.some((el: any) => el === 'it')
 
-    console.log('localeIds', localeIds)
-    console.log('SDIPEC', hasItaly && showSDIPECSelector)
-
     const postData = {
       id,
       locale: localeIds || [],
@@ -151,9 +148,6 @@ class InvoiceDataForm extends Component<any, any> {
       autocompleteName,
       type: schemaTypes.settings,
     }
-
-    console.log('postData', postData)
-
     this.saveMasterData(postData)
   }
 

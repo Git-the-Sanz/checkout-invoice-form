@@ -19,10 +19,11 @@ export const SETTINGS_SCHEMA = {
   },
   'v-security': {
     'allowGetAll': true,
+    "publicRead": ['id', 'showInvoiceForm', 'invoiceDataMandatory', 'locale', 'showSDIPECSelector', 'defaultSDIPEC', 'showPersonTypeSelector', 'defaultPersonType', 'showTermsConditions', 'autocompleteName', 'type'],
     'publicFilter': ['type'],
     'publicJsonSchema': false,
   },
   'v-cache': false,
   'v-default-fields': ['id', 'showInvoiceForm', 'invoiceDataMandatory', 'locale', 'showSDIPECSelector', 'defaultSDIPEC', 'showPersonTypeSelector', 'defaultPersonType', 'showTermsConditions', 'autocompleteName', 'type'],
-  'v-indexed': ['id', 'type'],
+  'v-indexed': ['id', 'showInvoiceForm', 'invoiceDataMandatory', 'locale', 'showSDIPECSelector', 'defaultSDIPEC', 'showPersonTypeSelector', 'defaultPersonType', 'showTermsConditions', 'autocompleteName', 'type'],
 }

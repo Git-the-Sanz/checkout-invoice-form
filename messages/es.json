@@ -24,6 +24,7 @@
   "invoice-data-settings.default": "Valor por defecto",
   "invoice-data-settings.btn-save": "Guardar",
   "admin/invoice-data-settings.saved": "Ajustes guardados correctamente",
-  "admin/invoice-data-settings.updating-schema": "Un momento por favor mientras creamos la configuración para esta aplicación",
-  "admin/invoice-data-settings.loading-settings": "Un momento mientras recuperamos la configuración"
+  "admin/invoice-data-settings.updating-schema": "Un momento por favor mientras creamos la configuración para esta aplicación. Una vez terminado, por favor recargue esta página",
+  "admin/invoice-data-settings.loading-settings": "Un momento mientras recuperamos la configuración",
+  "admin/invoice-data-settings.reload-button": "Recargar"
 }
